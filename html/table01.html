@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table01</title>
+</head>
+<body>
+    <!--table -> 페이지의 레이아웃 잡는 용도 (과거)
+        현재는 게시판 구성하는 용도로 자주 쓰임 -->
+
+    <table border ="1">
+        <tr><!-- 한 행을 구성하기 위한 태그-->>
+            <th>번호</th><!-- 헤더 컬ㄹ럼 구성하는 용도 -->
+            <th>제목</th>
+            <th>글쓴이</th>
+            <th>날짜</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>맑음</td>
+            <td>마마</td>
+            <td>2022.04.15</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>구구</td>
+            <td>마마</td>
+            <td>2022.04.16</td>
+        </tr>
+    </table>
+    
+    <!-- html5 : semantic tag 적극적으로 사용하도록 권장
+                태그의 사용목적 자체를 명시해주는 태그 -->
+    
+    <table border="1">
+        <thead> <!-- 테이블 헤드 명시-->
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>글쓴이</th>
+                <th>날짜</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>맑음</td>
+                <td>마마</td>
+                <td>2022.04.15</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>구구</td>
+                <td>마마</td>
+                <td>2022.04.16</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>
