@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃2</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        div{
+            border: 1px solid black;
+        }
+        .wrapper{
+            width: 800px
+        }
+        .header{
+            height: 200px;
+        }
+        /*
+        float : 요소들을 공중에 띄우는 속성
+        -> div의 block 속성 무시
+        -> 원래 레이아웃을 잡는 용도로 나온 속성은 x
+        */
+        .header-contents{
+            float: left;
+            width: 33.33%;
+            height: 200px;
+        }
+        /*　body */
+        .body{
+            height: 400px;
+        }
+        .body-contents{
+            float: left;
+            height: 400px;
+        }
+        /* contents */
+        #contents{
+            width: 70%;;
+        }
+        /* user */
+        #users{
+            width: 30%;
+        }
+        .loginBox{
+            height: 200px;
+        }
+        .emailBox{
+            height: 200px;
+        }
+    
+        .fotter{
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- div : 컨텐츠를 넣지 않으면 공간을 차지 하지 않음-->
+    <div class="wrapper">
+        <div class="header">
+            <div class="header-contents">Logo</div>
+            <div class="header-contents">Title</div>
+            <div class="header-contents">Reserved</div>
+        </div>
+        <div class="body">
+            <div class="body-contents" id = "contents">contents</div>
+            <div class="body-contents" id = "users">
+                <div class = "loginBox">login</div>
+                <div class= "emailBox">emailBox</div>
+            </div>
+        </div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+</html>

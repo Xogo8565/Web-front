@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+</head>
+    <!--CSS(Cascading Style Shee)
+    : 웹 페이지를 이루는 html 요소들의 스타일을 꾸며줄 수 있는 기능
+    -> html 요소들이 사용자들에게 어떤 식으로 보일지를 결정해주는 기능
+
+    CSS 방식
+
+    1. inline 방식 : html 요소의 태그 자체에 style 속성을 부여하는 방법
+    <table style = "width:300px; height :500pxp;">
+
+    2. 내부 스타일 시트 : 하나의 html 파일 안에서 <style> </style> 태그를 이용해서 속성을 부여하는 방법
+    <head>
+        <style>
+            table{
+                height : 300pox;
+                width : 500px
+            }
+        </style>
+    </head>
+
+    3. External 방식 : 외부에 독자적인 stylesheet 파일을 만들어서 style 속성값을 별도로 모아두고, 그 파일읆 import 해서 사용하는 방식
+    temp_css.css
+    <head>
+        <link href="css파일의 경로 " rel ="stylesheet">
+    </head>
+
+    CSS 적용 우선 순위 (중요도 / 명시도 / 선언순서)
+    ** 중요도
+    1. 속성값 뒤에 !important 
+    2. inline 방식으로 적용된 style -> 되도록 inline 방식으로 style 구성은 지양할 것
+    3. #id 선택자
+    4. class, 가상 클래스 선택자
+    5. tag 요소 선택자 (p, div, span)
+
+    ** 명시도
+    : 해당 요소를 명확하게 표현하면 할수록 우선순위 높아짐
+
+    ** 선언 순서 
+    :하나의 요소에 대해서 여러 개의 스타일 속성을 부여할 때 가장 마지막에 부여된 속성이 최우선순위를 지님.
+
+    selector {
+        property : 실제 값
+    }
+    -->
+    <link rel="stylesheet" href="span_css.css">
+    <style>
+        div{
+            background-color:blue;
+            background-color:coral;
+        }
+    </style>
+
+<body>
+    
+    <p style="background-color : pink;">Test01</p>
+    <div>Test02</div>
+    <span>Test03</span>
+</body>
+</html>

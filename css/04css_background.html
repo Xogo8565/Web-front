@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Style</title>
+    <style>
+        body{
+            background-image: url("/Users/jangseoksu/Desktop/123.png");
+            background-size: cover;
+        }
+        .box{
+            margin:5px; /* margin : 바깥여백*/
+            padding:5px; /*padding : 안쪽여백*/
+            border: 5px dotted purple; /* solid : 일반선*/
+            background-color: antiquewhite; /*border 안쪽으로만 적용*/
+            background-clip: content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class = "box"> Hello World Hello Java Hello Html</div> 
+</body>
+</html>
