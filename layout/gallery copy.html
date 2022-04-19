@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        .gallery {
+            width: 600px;
+            height: 500px;
+            border: 1px solid black;
+            margin: 7px;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: repeat(2, 45%);
+            grid-template-rows: repeat(2, 40%);
+            column-gap: 10%;
+            row-gap: 10%;
+            font-size: 10pt;
+        }
+        .gallery1 {
+            grid-area: 1/1/2/2;
+        }
+        .gallery2 {
+            grid-area: 1/2/2/3;
+        }
+        .gallery3 {
+            grid-area: 2/1/3/2;
+        }
+        .gallery4 {
+            grid-area: 2/2/3/3;
+        }
+        .galleryPhoto {
+            width: 100%;
+            height: 80%;
+        }
+        .galleryPhoto>img {
+            width: 99%;
+            height: 99%;
+        }
+        .galleryTitle {
+            font-size: 0.9em;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .galleryContent {
+            font-size: 0.7em;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <div class="gallery1">
+            <div class="galleryPhoto"> <img src="img/1.jpg" alt="사진을 표시할 수 없습니다."></div>
+            <div class="galleryInfo">
+                <p class="galleryTitle"> Heroine </p>
+                <p class="galleryContent"> 넘버백 - 히로인</p>
+            </div>
+        </div>
+        <div class="gallery2">
+            <div class="galleryPhoto"> <img src="img/2.jpg" alt="사진을 표시할 수 없습니다."></div>
+            <div class="galleryInfo">
+                <p class="galleryTitle"> Tokyo </p>
+                <p class="galleryContent"> ??? - 도쿄 </p>
+            </div>
+        </div>
+        <div class="gallery3">
+            <div class="galleryPhoto"><img src="img/3.jpg" alt="사진을 표시할 수 없습니다"></div>
+            <div class="galleryInfo">
+                <p class="galleryTitle"> Life Hack </p>
+                <p class="galleryContent"> ??? - lifehack</p>
+            </div>
+        </div>
+        <div class="gallery4">
+            <div class="galleryPhoto"><img src="img/4.jpg" alt="사진을 표시할 수 없습니다."></div>
+            <div class="galleryInfo">
+                <p class="galleryTitle"> 그저 네게 맑아라</p>
+                <p class="galleryContent"> 요루시카 - 그제 네게 맑아라</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mailBox</title>
+    <style>
+        #mailBox{
+            font-size: 9px;
+            border-collapse: collapse;  
+            /*
+            border-collapse -> 
+            겹치는 선이 붕괴
+            설정하면 tr에 직접 border 부여 가능
+            */
+            width : 150px;
+            height: 200px;
+            overflow-y: scroll;
+            /*overflow : 스크롤 속성 부여*/
+        }
+        #mailTbl{
+            width: 100%;
+        }
+        #Header{
+            text-align: center;
+            border-bottom: 1px solid black;
+        }
+        .mailContents tr{
+            border-bottom: 1px dotted black;
+        }
+        .mailContents tr:last-child td{
+            border-bottom: none;
+        }
+        #mailImg{
+            width: 25px;
+            vertical-align: middle;
+            /*
+            Vertical-align : 테이블 셀 안 / inline 요소
+            */
+        }
+    </style>
+</head>
+<body>
+    <div id = "mailBox">
+        <table id = "mailTbl">
+            <thead>
+                <tr>
+                    <th id="Header" colspan="2">
+                        <img src="img/notebook.gif" alter id="mailImg" ></h4>메일박스</h4>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="mailContents">
+                <tr> 
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <strong>Tom</strong>
+                        <br> Hello This is tom
+                    </td>
+                </tr>
+                <tr> 
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td> 
+                        <strong>Sam</strong>
+                        <br> This is Friday 
+                    </td>
+                </tr>
+                <tr> 
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <strong>Choloe</strong>
+                        <br> I love Java! 
+                    </td>
+                </tr>
+                <tr> 
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <strong>Alley</strong>
+                        <br> CSS is my Life! 
+                    </td>
+                </tr>
+                <tr> 
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <Strong>Wilson</Strong>
+                        <br> Is it rainy yet? 
+                    </td>
+                </tr>
+                <tr> 
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <Strong>Seonghyun</Strong>
+                        <br> Anything wrong with you? 
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>
+</body>
+</html>

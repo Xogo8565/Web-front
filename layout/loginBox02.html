@@ -9,35 +9,37 @@
         .loginBox{
             border: 1px solid black;
             margin: 10px;
-            padding: 10px;
+            padding: 5px;
             text-align: center;
-            width: 240px;
+            width: 200px;
         }
-        .top{
-            font-size: 15px;
-        }
-        .mid{
+    
+        .loginBoxContents{
             display: flex;
             flex-wrap: nowrap;
         }
-        .mid>.input{
-            margin: 10px;
+        .loginBoxContents>.loginBoxInput{
+            margin: 5px;
             flex-grow: 1;
         }
-        .mid>.input>input{
-            margin : 2px
+        .loginBoxContents>.loginBoxInput>input{
+            margin : 2px;
+            width : 90%;
         }
-        .mid>.loginButton{
-            flex-grow: 1;
+        .loginBoxContents>.loginButton{
+            flex-grow: 2;
+            width: auto;
         }
         .loginButton>button{
-            margin-top: 15px;
-            height: 35px;
-            width: 60px;
+            margin-top: 12px;
+            height: 60%;
+            width: 100%;
             background-color: gold;
             border: none;
+            border-radius: 3px;
+            font-size: 9px;
         }
-        .bottom>a{
+        .Footer>a{
             color: black;
             text-decoration: none;
             font-size: 11px;
@@ -47,9 +49,9 @@
 </head>
 <body>
     <div class="loginBox">
-        <div class="top"> 로그인</div>
-        <div class="mid">
-            <div class="input">
+        <div class="loginBoxTitle">로그인</div>
+        <div class="loginBoxContents">
+            <div class="loginBoxInput">
                 <input type="text" id="id" placeholder="id"><br>
                 <input type="password" id="pw" placeholder="pw">
             </div>
@@ -57,7 +59,7 @@
                 <button>로그인</button>
             </div>
         </div>
-        <div class="bottom"><a href="???">아이디 / 비밀번호 찾기</a> </div>
+        <div class="Footer"><a href="???">아이디 / 비밀번호 찾기</a> </div>
     </div>
 </body>
 </html>
