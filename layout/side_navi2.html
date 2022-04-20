@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body{
+                height: 500px;
+            }
+            .sideNavi {
+                width: 200px;
+                height: 100%;
+                background-color: rgb(116, 194, 224);
+                display: flex;
+                padding : 10px;
+                position: fixed;
+                left: -180px;
+            }
+            .sideNavi:hover{
+                transform: translateX(180px);
+                transition-duration: 1.1s;
+            }
+            .sideNaviContents{
+                flex-basis: 90%;
+            }
+            .sideNavi ul {
+                list-style: none;
+                color: beige;
+                font-size: 22px;
+                height: 25px;
+                overflow: hidden;
+            }
+            .sideNavi ul:hover{
+                height: 20%;
+                transition-duration: 1.1s;
+            }
+            .sideNavi li {
+                font-size: 19px;
+                margin: 20px;
+            }
+            .sideNaviPointer {
+                flex-grow: 1;
+                align-self: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sideNavi">
+            <div class="sideNaviContents">
+                <ul class="sideNaviUl">1
+                    <li class="sideNaviLi">1-1</li>
+                    <li class="sideNaviLi">1-2</li>
+                </ul>
+                <ul class="sideNaviList">2
+                    <li class="sideNaviLi">2-1</li>
+                    <li class="sideNaviLi">2-2</li>
+                </ul>
+            </div>
+            <div class="sideNaviPointer">▷</div>
+        </div>
+    </body>
+    <footer></footer>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        가장 만들어진 요소가 가장 위쪽에 올라오는 것이 default
+        z-index : 겹쳐지는 요소들의 우선순위를 결정해주는 속성
+        -> 솟자가 커질수록 우선순위가 높아짐(음수값도 부여 가능)
+        -> 음수 z-index값을 사용하면 추후에 사용자의 동작에 따라서 우선순위를 올려주고 싶어도 제대로 동작되지 x.
+        -> static 속성은 z인덱스 영향을 받지 않음.
+        */
+        .outerBox{
+            position:relative;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            margin: auto;
+        }
+        .innerBox1{
+            position:relative;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            z-index: 1;
+        }
+        .innerBox2{
+            position:relative;
+            top: -50px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            z-index: 2;
+        }
+        .innerBox3{
+            position:relative;
+            top: -100px;
+            left: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            z-index: 1;
+        }
+        div[class^="innerBox"]:hover{
+            z-index: 99;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outerBox">
+        <div class="innerBox1"></div>
+        <div class="innerBox2"></div>
+        <div class="innerBox3"></div>
+    </div>
+</body>
+</html>

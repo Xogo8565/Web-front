@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        positon :
+         static - 모든 html 요소의 default -> normal flow에 따라서 요소를 위치시킴
+          -> top, left, right , bottom, z-index 속성이 먹히지 않음
+         
+         relative - normal flow를 따르지만 자신 요소를 기준으로 해서 top, right, left, bottom 값에 따라 offset을 적용
+         
+         fixed - normal flow에서 벗어남
+          -> viewpoint를 기준으로 해서 위치를 고정시킴 -> 요소 자체가 한 자리에 고정이 됨.
+          
+         absoulute - normal flow에서 벗어남
+          -> static이 아닌 position 값을 가지고 있는 조상 요소를 기주으로 위치
+          -> 조상이 없다면 body 요소를 기준으로 배치
+        */
+        *{
+            box-sizing: border-box;
+        }
+        .outerBox{
+            border: 1px solid black;
+            width : 300px;
+            height: 300px;
+            margin: auto
+        }
+        .innerBox{
+            position: relative;
+            /*양수 음수 모두 사용가능*/
+            right : 100px;
+            top : 50%;
+            width: 100px;
+            height: 100px;
+            border: 2px solid blue;
+        }
+        .innerBox2{
+            position: static;
+            width: 100px;
+            height: 100px;
+            border: 2px solid red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outerBox">
+        <div class="innerBox"></div>
+        <div class="innerBox2"></div>
+    </div>
+</body>
+</html>
