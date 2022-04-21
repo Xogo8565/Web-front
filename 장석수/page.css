@@ -113,13 +113,17 @@
 }
 .searchContainer input {
     flex-grow: 1;
+    width: 600px;
+    height: 30px;
 }
 .searchContainer button {
-    flex-basis: 100px;
+    flex-basis: 10  0px;
+    width: 100px;
     background-color: #587c71;
     font-size: 12px;
     color: white;
     border: none;
+    height: 30px;
 }
 .searchContainer button:hover{
     cursor: help;
@@ -172,7 +176,7 @@
 /*이 달의 책*/
 .bookOfMonth{
     margin: 10px;
-    height: 70%;
+    height: 60%;
     padding: 12px;
     border: #2f271a 1px solid;
     background-color: #ebd6bd;
@@ -300,7 +304,7 @@ div[class^="bookOfMonthContent"] a:hover p{
     display: flex;
     height: 50%;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     background-color: #2f271a;
 }
 .bottomNaviButton{
