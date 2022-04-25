@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        자바에서의 변수 선언 ->
+        자로형 변수명 = 값;
+
+        자바스크립트에서는 변수에 명시적인 자료형이 붙지 않음
+        var, let, const 로 모든 자료형을 담을 수 있음
+
+        var : function level scope 
+        1) 변수를 선언하지 않은 상태에서 변수를 사용해도 에러가 나지 않음
+        2) 중복된 이름의 변수 선언 가능
+
+        let : block level scope
+        1) 가장 흔히 사용되는 변수
+        
+        const : block level scope
+        1) 상수(값 재할당 불가)
+        
+        console.log() -> 개발자도구에서 console 탭에 출력해주는 함수
+
+        자바스크립트의 실행 흐름은 위에서 아래로 떨어짐.
+        */
+       
+        /*
+       console.log(num1);
+       console.log(num2);
+       console.log(num3);
+        */
+       //변수의 선언
+       var num1 = 1;
+       let num2 = 2;
+       const num3 = 3;
+       console.log(num1);
+       console.log(num2);
+       console.log(num3);
+
+        //변수의 재할당
+        num1 = "String1";
+        num2 = "String2"; //var, let -> 변수들을 자료형 상관없이 모두 담아줄 수 있음
+        //num3 = "String3"; const 변수에는 값 재할당 안됨
+        console.log(num1);
+        console.log(num2);
+        //console.log(num3);
+
+        //중복된 변수명 사용
+        var num1 = true;
+       // let num2 = false; let을 사용하면 중복변수명 x
+
+       /*
+            function level scope : 하나의 함수 내에서 선언한 변수는 해당 함수 내에서 공유되는 경우
+            block level scope : 하나의 블록 내에서 선언한 변수는 그 블록 내에서만 공유가 가능한 경우(자바에서의 지역변수와 비슷한 기능)
+       */
+
+       function test1(){
+           if(true){
+               var test = "TEST_VAR";
+           }
+           console.log(test);
+       }
+
+       function test2(){
+           if(true){
+               let test = "TEST_LET";
+           }
+           console.log(test);
+       }
+
+       test1();
+       test2();
+    </script>
+</body>
+</html>

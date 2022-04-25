@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            div {
+                border: 1px solid black;
+                width: 200px;
+                height: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            //document.write() : body의 element나 text를 추가할 수 있음
+            document.write("Hello Javascript!");
+            // 만약에 문자열을 ""을 이용해서 열어줬으면 내부에 들어가는 쿼테이션은 '' 싱글 쿼테이션으로 사용한다. 문자열을 ''로 열어줬을 경우에는
+            // 내부에서는 ""을 사용한다.
+            document.write("<div id = 'scriptDiv'>SCRIPT DIV<div>");
+        </script>
+        <!-- 자바스크립트 : 페이지에서 동적인 요소를 다루고 변화시켜 줄 수 있는 언어 HTML 로만 구성된 페이지는 정적인 페이지 -> 스크립트
+        언어 / 자바는 컴파일 언어 컴파일 언어 : 짜놓은 전체 코드를 기계어로 번역하고 -> 실행되는 과정을 거치는 언어 스크립트 언어 : 한줄씩
+        번역되면서 바로 실행이 되는 언어 자바스크립트의 사용방식 : - internal body 태그 안쪽이나 혹은 Head 태그 안쪽에
+        <script> </script> - external 외부에 .js로 끝나는 스크립트 코드만 모아둔 파일을 아래와 같이 import 해서 사용
+        head 영역에서 <script src="js파일경로"> </script> - inline : 요소 태그의 안쪽에 스크립트 코드를 추가하는 것도
+        가능. <button type = "button" onclick = "....">버튼</button> -->
+        <div id="htmlDiv">HTML DIV</div>
+        <script>
+            //if, for 등 제어문을 활용해 다량의 요소도 컨트롤이 가능해짐
+            //다량의 요소를 찍어내거나, 특정한 상황에 따라사 동적인 변화를 주는 게 가능
+            if(10>5){
+                document.write("<p>첫번째 수가 두번째 수보다 큽니다</p>");
+            }else{
+                document.write("<p>두번째 수가 첫번째 수보다 크거나 같습니다</p>");
+            }
+            for (let i = 0; i < 100; i++) {
+                document.write("<div class = 'scriptDiv'>SCRIPT DIV<div>")
+            }
+        </script>
+
+    </body>
+</html>

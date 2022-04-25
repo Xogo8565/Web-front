@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="id">아이디입니다.</div>
+    <div id="nickname">닉네임입니다.</div>
+    <input type="text" id="username" value="유저네임입니다.">
+    <script>
+        //document 객체 : html 요소에 접근하는 게 가능
+        // 요소의 Id 값을 이용해서 요소 선택
+    
+        /*
+    let username = document.getElementById("username");
+    // 요소 그 자체를 가졍홈
+    console.log("username");
+    // 요소의 value
+    console.log("username.value");
+    // 요소의 id
+    console.log("username.id");
+    // 요소의 type
+    console.log("username.type");
+
+    // 원래 존재하는 요소의 속성 값을 변경
+    username.value = "This is username";
+    console.log("username.value");
+    username.id = "userName";
+    console.log("username.id");    
+
+        */
+
+    //input, textarea, select 태그 같은 경우에는 그 안의 값을 가져올 때 value 속성을 이용해서 가져 옴
+    //다른 태그들은 innerHTML을 이용해 안에 있는 텍스트 값을 가져올 수 있음
+
+    let id = document.getElementById("id");
+    let nickname = document.getElementById("nickname");
+
+    console.log("id");
+    console.log("id.innerHTML");
+
+    console.log("nickname");
+    console.log("nickname.innerHTML");
+
+    id.innerHTML = "This is ID";
+    nickname.innerHTML = "This is Nickname";
+    
+    //innerHTML을 통해 text 뿐만 아니라 html 요소를 추가하는 것도 가능.
+    id.innerHTML = "<p>이너태그</p>"
+    nickname.innerHTML = "<input type = 'text' placeholder = 'input'>"
+
+    //style 변경
+    id.style.border = "1px solid black";
+    nickname.style.backgroundColor = "red";
+    username.style.textAlign= "center";
+    </script>
+</body>
+</html>

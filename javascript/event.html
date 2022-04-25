@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button type="button" id="btn">버튼</button>
+
+        <script>
+
+            /*
+        event : 브라우저 안에서 사용자가 취하는 모든 액션 -> 클릭, hover, drag, 스크롤, 크기조절 .....
+        */
+            let btn = document.getElementById("btn");
+            console.log(btn);
+
+            /*
+        call back function : 특정한 트리거(경우)가 있을 때만 호출되는 함수
+       -> 우리가 명시적으로 이벤트 관련 함수를 부른다고 호출이 되는 게 아니라
+       -> 특정한 이벤트가 일어났을 때(ex_클릭) 함수가 호출되는 것
+
+       event listen(이벤트 감시자)
+        : 특정한 이벤트가 발생했을 때 그 이벤트를 감지하는 역할
+
+       event handler(이벤트 처리자)
+        : 특정 이벤트가 감지 됐을 때 그에 따른 처리 코드를 수행하는 역할
+
+        e-> 일어난 이벤트에 대한 정보
+        btn.onclick = function(e){
+            //수행코드
+        }
+        btn 버튼에 onclick 이벤트가 발생하면
+        function 함수를 수행(함수를 호출)
+        */
+            /*
+        btn.onclick = function(e){
+            btn.style.backgroundColor = "dodgerblue";
+            btn.style.width = "100px";
+
+            console.log(e);
+            console.log(e.target);
+            e.target.style.height = "100px";
+        }
+        */
+
+            //addEventListener
+            /*
+        btn.addEventListener("이벤트명",function(){});
+        */
+            /*btn.addEventListener("click",function(){
+            btn.style.backgroundColor = "orange";
+            btn.style.width = "100px";
+        });*/
+
+            // onclick 과 addEventListener의 차이
+
+            function printA() {
+                console.log("A");
+            }
+
+            function printB() {
+                console.log("B");
+            }
+            // btn.onclick = printA(); 이미 정의된 함수이므로 () x onclick 을 통해 여러개의 콜백 함수를 세팅해도 가장
+            // 마지막에 셋팅된 함수만 호출이 됨
+            /*btn.onclick = printA;
+              btn.onclick = printB;
+            */
+
+            btn.addEventListener("click",printA);
+            btn.addEventListener("click",printB);
+        </script>
+
+    </body>
+</html>

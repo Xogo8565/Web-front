@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+    자바스크립트에서의 자료형
+    String, boolean, number, BigInt, null, undefined,
+    symbol(고유한 값ㅇ르 만들고자 할 때 사용하는 자료형)
+
+    undefined : 변수를 선언하고 그 변수에 값이 대입되지 않았을 경우 undefined가 default 값으로 잡히게 된다. 
+    null : 값 자체가 없느 ㄴ경우
+    */
+
+    let a;
+    console.log(a);
+    //typeof
+    console.log(typeof a);
+
+    let b = null;
+    console.log(b);
+    console.log(typeof b);
+    
+    let c = "c";
+    console.log(c);
+    console.log(typeof c);
+
+    let d = 0;
+    console.log(d);
+    console.log(typeof d);
+
+    let sym1 = Symbol("abc");
+    let sym2 = Symbol("abc");
+    console.log(sym1);
+    console.log(sym2);
+    console.log(sym1==sym2);
+    
+    //BigInt 형으로 값을 넣어주고 싶으면 숫자 뒤에 n을 넣어준다
+    let num = 10n;
+    console.log(num);
+    console.log(typeof num);
+    
+    /*infinity*/
+    console.log(1/0);
+
+    /*NaN : 숫자가 아님*/
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            /*
+        1. alert : 브라우저에 기본적인 알림창을 띄워주는 함수
+        인자값으로 넘긴 값이 알림창 내용으로 들어 감.
+        */
+            //alert("Hello");
+
+            /*
+         2. confirm : 확인과 취소 버튼 두개를 띄워주는 알림창
+         -> 확인을 누르면 true, 취소를 누르면 false 값을 리턴
+        //탈퇴, 게시글 삭제, 댓글 삭제 등 -> 한번 더 사용자에게 확인하는 용도로 사용
+        */
+            // confirm("Hello")  let check = confirm("정말 삭제하시겠습니까?")  console.log(check);
+
+            /*
+        3. prompt : 확인과 취소, 입력창을 듸워주는 알림창
+         -> 확인을 누르먼 입력값이 리턴, 취소를 누르면 Null값 리턴
+        */
+        let input = prompt("오늘의 기분은 어떤가요?");
+        console.log(input);
+
+        </script>
+    </body>
+</html>

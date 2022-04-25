@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let row = prompt("행을 입력하세요");
+        let column = prompt("열을 입력하세요");
+
+        document.write("<table border = '1px'>");
+            for(let i = 0; i<row; i++){
+                document.write("<tr style='height: 10px; width:10px;'>");
+                for(let j = 0 ; j<column; j++){
+                    document.write("<td style='height: 10px; width:10px;'></td>");
+                }
+                document.write("</tr>");
+             }
+        document.write("</table>");
+    </script>
+</body>
+</html>
