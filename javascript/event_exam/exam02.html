@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id ="input">
+    <button type="button" id ="button">버튼</button>
+
+    <script>
+        let input = document.getElementById("input");
+        let button = document.getElementById("button");
+
+        /*button.onclick = function(){
+            alert(input.value);
+        }*/
+        button.addEventListener("click",function(){
+            //버튼을 누른 시점에 input 안에 있는 value 값을 가져와서 alert 안에 띄워주는 작업을 해야 함.
+            alert(input.value);
+        });
+
+    </script>
+    
+</body>
+</html>

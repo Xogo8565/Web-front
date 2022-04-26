@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #find1 {
+                position: absolute;
+                left: 846px;
+                top: 206px;
+                transform: translate(-50%,-50%);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+            #find2 {
+                position: absolute;
+                left: 614px;
+                top: 346px;
+                transform: translate(-50%,-50%);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+            #find3 {
+                position: absolute;
+                left: 934px;
+                top: 454px;
+                transform: translate(-50%,-50%);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+            #find4 {
+                position: absolute;
+                left: 62px;
+                top: 688px;
+                transform: translate(-50%,-50%);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+            #find5 {
+                position: absolute;
+                left: 644px;
+                top: 862px;
+                transform: translate(-50%,-50%);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+            #find6 {
+                position: absolute;
+                left: 506px;
+                top: 924px;
+                transform: translate(-50%,-50%);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+            #find7 {
+                position: absolute;
+                left: 164px;
+                top: 232px;
+                transform: translate(-50%,-50%);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <img src="1234.png" alt="">
+            <div id="find1"></div>
+            <div id="find2"></div>
+            <div id="find3"></div>
+            <div id="find4"></div>
+            <div id="find5"></div>
+            <div id="find6"></div>
+            <div id="find7"></div>
+        </div>
+        <script>
+            let count = 0;
+            let find1 = document.getElementById("find1");
+            let find2 = document.getElementById("find2");
+            let find3 = document.getElementById("find3");
+            let find4 = document.getElementById("find4");
+            let find5 = document.getElementById("find5");
+            let find6 = document.getElementById("find6");
+            let find7 = document.getElementById("find7");
+
+            find1.onclick = function () {
+                find1.style.border = "5px solid red";
+                count++;
+                findAll();
+            }
+            find2.onclick = function () {
+                find2.style.border = "5px solid red";
+                count++;
+                findAll();
+            }
+            find3.onclick = function () {
+                find3.style.border = "5px solid red";
+                count++;
+                findAll();
+            }
+            find4.onclick = function () {
+                find4.style.border = "5px solid red";
+                count++;
+                findAll();
+            }
+            find5.onclick = function () {
+                find5.style.border = "5px solid red";
+                count++;
+                findAll();
+            }
+            find6.onclick = function () {
+                find6.style.border = "5px solid red";
+                count++;
+                findAll();
+            }
+            find7.onclick = function () {
+                find7.style.border = "5px solid red";
+                count++;
+                findAll();
+            }
+
+            function findAll() {
+                if (count === 7) {
+                    alert("You found out all the different points in this picture.");
+                }
+            }
+        </script>
+    </body>
+</html>

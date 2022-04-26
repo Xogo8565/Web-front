@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div{
+            width: 300px;
+            height: 200px;
+            border: 1px black solid;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input">
+    <button type="button" id = "button">버튼</button>
+    <div id = "div"></div>
+    
+    <script>
+        let input = document.getElementById("input");
+        let button = document.getElementById("button");
+        let div = document.getElementById("div");
+
+        button.onclick = function(){
+            div.innerHTML = input.value;
+            input.value = "";
+        }
+
+    </script>
+</body>
+</html>

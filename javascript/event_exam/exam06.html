@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="title">Hover event</div>
+        <div id="box">
+        </div>
+    </div>
+
+    <script>
+        let box = document.getElementById("box");
+        // mouseenter / mouseover : 마우스가 올라갔을 때의 순간만 감지
+        // mouseover / mouseeout : 자식요소까지 부모요소와 같은 영역으로 인식
+        // 반면, mouseenter/mouseleave는 별개 영역으로 인식
+
+        box.addEventListener("mouseover",function(){
+            box.style.backgroundColor = "red";
+        });
+        box.addEventListener("mouseout",function(){
+            box.style.backgroundColor = "gold"; 
+        })
+
+    </script>
+</body>
+</html>

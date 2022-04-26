@@ -64,14 +64,19 @@
             function printB() {
                 console.log("B");
             }
-            // btn.onclick = printA(); 이미 정의된 함수이므로 () x onclick 을 통해 여러개의 콜백 함수를 세팅해도 가장
-            // 마지막에 셋팅된 함수만 호출이 됨
-            /*btn.onclick = printA;
+            // btn.onclick = printA(); 
+            // 1. printA 함수가 호출되면서 콘솔에 A가 출력
+            // 2. printA 함수가 리턴갑  ㅅ이 없기 때문에 undefined 값이 리턴됨
+            // 3. 결과적으로 click 이벤트에서 undefined 값을 넘겨주는 상황이라 잘못된 방식
+
+            // onclick 을 통해 여러개의 콜백 함수를 세팅해도 가장 마지막에 셋팅된 함수만 호출이 됨
+            /*btn.onclick = printA; //함수 자체를 넘겨주기 때문에 실행 o
+            
               btn.onclick = printB;
             */
-
-            btn.addEventListener("click",printA);
-            btn.addEventListener("click",printB);
+            // addEventListener 를 사용하면 여러개의 이벤트 핸들러를 할당하는 것이 가능.
+            btn.addEventListener("click", printA);
+            btn.addEventListener("click", printB);
         </script>
 
     </body>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                background-color: rgb(55, 26, 26);
+            }
+            #circle {
+                width: 20px;
+                height: 20px;
+                background-color: rgb(123, 142, 62);
+                border-radius: 50%;
+                display: none;
+                position: absolute;
+                transform: translate(-50%,-50%);
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="circle"></div>
+
+        <script>
+            let circle = document.getElementById("circle");
+
+            document.onmousemove = function (e) {
+                // e- > pageX, pageY 마우스 커서 위치값
+                // page -> 전체 document 기준
+                // screen -> 사용자 모니터 기준
+                // client ->　사용자에게 웹페이지가 보여지는 영역
+                // offset -> 걸려있는 이벤트 기준
+                circle.style.display = "block";
+                circle.style.top = e.pageY + "px";
+                circle.style.left = e.pageX + "px";
+            }
+            document.onmouseout = function () {
+                circle.style.display = "none";
+            }
+        </script>
+    </body>
+</html>
