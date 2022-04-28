@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        배열 : 다양한 타입(자료형)의 데이터의 모음
+        -> 배열을 생성할 때 자료형을 저장하지 않음
+        -> 문자열, 숫자, boolean, undefined, 객체, 함수 
+
+        ** 자바에서의 배열 : 같은 자료형 데이터의 모음
+
+        배열의 생성 
+        let arr = new Array();
+        let arr = new Array(1,2,3);
+        let arr = [1,2,3];
+        */
+        let arr1 = new Array(1,2,3);
+        /*
+        console.log 에서 문자열과 객체 등을 함께 출력하고 싶을 때
+        +를 사용하면 그 객체 안의 요소가 문자열화 되서 출력
+        *를 사용하면 그 객체 자체가 출력
+        */
+
+        /*
+        console.log("arr1 :", arr1);
+        let arr2 = [1,2,3];
+        console.log("arr2 :", arr2);
+        let arr3 = new Array();
+        console.log("arr3 :", arr3);
+        arr3.push(1);
+        console.log("1 pushed :", arr3);
+        arr3.push(2);
+        arr3.push(3);
+        console.log("2,3 pushed :", arr3);
+        */
+
+        /*
+        배열에 값넣기
+        -> index 번호 활용
+        -> 0부터 인덱스 번호 시작
+        */
+
+        /*
+        arr3[3] = 4;
+        console.log("4 pushed :", arr3);
+        
+        let arr = ["봄", 30, false, function(){console.log("call me")},[1,2,3]];
+        console.log(arr);
+        console.log(arr[3]); // 함수 자체를 출력
+        arr[3](); // 함수를 실행
+        console.log(arr[3]()); // 함수를 실행시키고 리턴값을 출력
+        */
+
+        let arr = ["봄", 30, false, function(){console.log("call me")},[1,2,3]];
+
+        for(let i = 0; i < arr.length; i++){
+            console.log(arr[i]);
+        }
+
+        // for..of
+
+        for(let a of arr3){
+            console.log(arr);
+        }
+    </script>
+    
+</body>
+</html>

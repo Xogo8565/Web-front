@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            //코드의 실행순서 : 위에서부터 아래로 실행
+            //fruitsList를 인식하지 못하는 상태
+            let fruits = ["orange", "tomato", "banana", "grape"];
+            window.onload = function(){
+                //window : 웹 브라우저의 모든 요소를 담은 객체
+                //onload : 웹 브라우저의 모든 요소들이 로드가 완료 됐을 때 function 실행
+                // 즉 웹 브라우저의 요소가 모두 준비 완료되ㅐ면 그 때 functio의 코드를 실행
+                let fruitsList = document.getElementById("fruitsList");
+                showList();
+            }                      
+            // cannot set properties of null -> div fruitsList를 가져오지 못함
+            // script가 실행될 당시에는 아직 div가 만들어지지 않은 상태라 에러 발생
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="fruits">
+                <fieldset>
+                    <legend>fruits</legend>
+                    <div id="fruitsList"></div>
+                </fieldset>
+            </div>
+            <div class="forward">
+                <input type="text" id="forwardInput">
+                <button type="button" id="addForward">앞쪽에 추가</button>
+                <button type="button" id="deleteForward">앞에서 삭제</button>
+            </div>
+            <div class="back">
+                <input type="text" id="backInput">
+                <button type="button" id="addBack">뒤쪽에 추가</button>
+                <button type="button" id="deleteBack">뒤에서 삭제</button>
+            </div>
+        </div>
+
+        <script>
+            let forwardInput = document.getElementById("forwardInput");
+            let backInput = document.getElementById("backInput");
+
+            function showList() {
+                fruitsList.innerHTML = fruits;
+            }
+
+            document.getElementById("addForward").onclick = function () {
+                fruits.unshift(forwardInput.value);
+                forwardInput.value ="";
+                showList();
+            }
+            document.getElementById("deleteForward").onclick = function () {
+                fruits.shift(forwardInput.value);
+                showList();
+
+            }
+            document.getElementById("addBack").onclick = function () {
+                fruits.push(backInput.value);
+                backInput.value = "";
+                showList();
+
+            }
+            document.getElementById("deleteBack").onclick = function () {
+                fruits.pop(backInput.value);
+                showList();
+
+            }
+        </script>
+    </body>
+</html>

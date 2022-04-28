@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            window.onload = function () {
+                let lists = [];
+                let shoppingList = document.getElementById("shoppingList");
+                let addInput = document.getElementById("addInput");
+                let addButton = document.getElementById("addButton");
+                let deleteInput = document.getElementById("deleteInput");
+                let deleteButton = document.getElementById("deleteButton");
+
+                function showList() {
+                    shoppingList.innerHTML = lists;
+                }
+
+                showList();
+
+                addButton.onclick = function () {
+                    if (addInput.value !== "") {
+                        lists.push(addInput.value);
+                        addInput.value = "";
+                    }
+                    addInput.focus();
+                    showList();
+                }
+                deleteButton.onclick = function () {
+                    if (lists.indexOf(deleteInput.value) != -1) {
+                        lists.splice(lists.indexOf(deleteInput.value), 1);
+                        deleteInput.value = "";
+                    }
+                    deleteInput.focus();
+                    showList();
+
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <fieldset>
+                <legend>장바구니</legend>
+                <div id="shoppingList"></div>
+            </fieldset>
+            <div class="add">
+                <input type="text" id="addInput">
+                <button id="addButton">추가하기</button>
+            </div>
+            <div class="delete">
+                <input type="text" id="deleteInput">
+                <button id="deleteButton">삭제하기</button>
+            </div>
+        </div>
+    </body>
+</html>
