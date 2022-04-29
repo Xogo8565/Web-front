@@ -1,21 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
+** 구현 코드 **<!DOCTYPE html>
+<html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        @media screen and (max-width:1000px) {
-            .asf{
-                display: none;
-            }
-            
-        
-    </style>
+
+<meta charset="UTF-8">
+
+<title>화면설계 문제해결 시나리오</title>
+
+<style>
+
+* {
+
+margin: 0
+
+}
+
+.header {
+
+height: 100px;position: relative;
+
+}
+
+.header>img {
+
+width: 100px;
+
+height: 100px;
+
+float: left;
+
+}
+
+#login {
+
+position: absolute;
+
+right: 0px;
+
+}
+
+.nav>ul {
+
+list-style: none;
+
+padding-bottom: 16px;
+
+width: 100%;
+
+height: 30px;
+
+display: flex;
+
+justify-content: space-around;
+
+}
+
+.nav li{       
+
+ flex-grow: 1;
+
+}
+
+.nav a{       
+
+ text-decoration: none;
+
+}
+
+.content {
+
+background-color: gray;
+
+height: 1000px;
+
+}
+
+.footer {
+
+width: 100%;
+
+height: 50px;
+
+line-height: 50px;
+
+background-color: #ccc;
+
+text-align: center;
+
+}
+
+</style>
+
 </head>
+
 <body>
-    <div class="asf">123453415093148501</div>
-    
+
+<div class="header">
+
+<img id='logo' src="logo.png">
+
+<form method="post">
+
+<table id="login">
+
+<tr>
+
+<td>아이디</td>
+
+<td><input type="text" id="id"></td>
+
+</tr>
+
+<tr>
+
+<td>패스워드</td>
+
+<td><input type="password" id="pw"></td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<button type="submit">로그인</button>
+
+</td>
+
+<td>
+
+<button type="reset">취소</button>
+
+</td>
+
+</tr>
+
+</table>
+
+</form>
+
+</div>
+
+<div class="nav">
+
+<ul>
+
+<li><a href="#">메인</a></li>
+
+<li><a href="#">공지사항</a></li>
+
+<li><a href="#">자유게시판</a></li>
+
+<li><a href="#">갤러리</a></li>
+
+<li><a href="#">회원관리</a></li>
+
+<li><a href="#">채팅하기</a></li>
+
+</ul>
+
+</div>
+
+<div class="content"> </div>
+
+<div class="footer">
+
+<p>Copyright ⓒ 1998-2022 KH Information Educational Institute All Right Reserved</p>
+
+</div>
+
 </body>
+
 </html>
