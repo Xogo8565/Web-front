@@ -128,7 +128,7 @@
                 </div>
                 <div class="zip">
                     <input type="text" id="zipInput" placeholder="우편번호" name="zipInput">
-                    <button id="zipBtn" onclick="execDaumPostcode()">우편번호 찾기</button>
+                    <button type = "button" id="zipBtn" onclick="execDaumPostcode()">우편번호 찾기</button>
                 </div>
                 <div class="address1">
                     <input type="text" id="addressInput1" placeholder="도로명주소" name="addressInput1">
@@ -218,51 +218,28 @@
             let emailInput = document.getElementById("emailInput");
             let phone2 = document.getElementById("phone2");
             let phone3 = document.getElementById("phone3");
-            let completeBtn = document.getElementById("completeBtn");
             let regexID = /^[a-zA-Z][a-zA-Z0-9]{5,11}$/;
             let regexPW = /^[a-zA-Z0-9!@#$%^&*]{6,20}$/;
             let regexEmail = /^[\w]+@[a-zA-Z0-9]+(\.[a-zA-Z-0-9]+){1,2}$/
             let regexPhone = /^[0-9]{3,4}$/;
 
-            idInput.onkeyup = function () {
-                if (!regexID.test(idInput.value)) {
-                    idInput.style.boxShadow = "4px 4px 4px red";
+            function check(regex, input){
+                if(!regex.test(input.value)){
+                    input.style.boxShadow = "4px 4px 4px red";
                 } else {
-                    idInput.style.boxShadow = "4px 4px 4px green";
+                    input.style.boxShadow = "4px 4px 4px green";
                 }
             }
 
-            pwInput.onkeyup = function () {
-                if (!regexPW.test(pwInput.value)) {
-                    pwInput.style.boxShadow = "4px 4px 4px red";
-                } else {
-                    pwInput.style.boxShadow = "4px 4px 4px green";
-                }
-            }
+            idInput.onkeyup = (()=>check(regexID,idInput));
 
-            emailInput.onkeyup = function () {
-                if (!regexEmail.test(emailInput.value)) {
-                    emailInput.style.boxShadow = "4px 4px 4px red";
-                } else {
-                    emailInput.style.boxShadow = "4px 4px 4px green";
-                }
-            }
+            pwInput.onkeyup = (()=>check(regexPW,pwInput));
 
-            phone2.onkeyup = function () {
-                if (!regexPhone.test(phone2.value)) {
-                    phone2.style.boxShadow = "4px 4px 4px red";
-                } else {
-                    phone2.style.boxShadow = "4px 4px 4px green";
-                }
-            }
+            emailInput.onkeyup = (()=>check(regexEmail,emailInput));
 
-            phone3.onkeyup = function () {
-                if (!regexPhone.test(phone3.value)) {
-                    phone3.style.boxShadow = "4px 4px 4px red";
-                } else {
-                    phone3.style.boxShadow = "4px 4px 4px green";
-                }
-            }
+            phone2.onkeyup = (()=>check(regexPhone,phone2));
+
+            phone3.onkeyup = (()=>check(regexPhone,phone3));
 
             pwInput2.onkeyup = function () {
                 if (pwInput.value === pwInput2.value) {
@@ -272,7 +249,7 @@
                 }
             }
 
-            completeBtn.onclick = function () {
+            document.getElementById("completeBtn").onclick = function () {
                 if (!regexID.test(idInput.value)) {
                     alert("일치하지 않는 ID 형식입니다");
                     return;

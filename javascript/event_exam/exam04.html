@@ -22,16 +22,12 @@
                 let plusBtn = document.getElementById("plusBtn");
                 let rs = document.getElementById("rs");
 
-                plusBtn.onclick = function () {
-                    console.log(num1.value);
-                    console.log(num2.value);
-                    // 요소.value -> String 값 문자열의 연결이 이뤄짐. rsDiv.innerHTML = num1.value + num2.value;
-                    // 숫자형으로 변환
-                    // 1. parseInt() rsDiv.innerHTML = parseInt(num1.value) + parseInt(num2.value);
-
-                    // 2. Number() 의 생성자
-                    rs.innerHTML = Number(num1.value) + Number(num2.value);
+                function add(num1, num2) {
+                    rs.innerHTML = Number(num1) + Number(num2);
                 }
+
+                plusBtn.onclick = (()=>add(num1.value,num2.value));
+                
             </script>
         </div>
     </body>
