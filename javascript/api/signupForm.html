@@ -11,6 +11,7 @@
             }
             .container {
                 height: 150px;
+                width: 800px;
             }
             .container * {
                 margin: 5px;
@@ -42,6 +43,12 @@
             }
             .re-pw * {
                 flex-basis: 50%;
+            }
+            .phone {
+                display: flex;
+            }
+            .phone * {
+                flex-basis: 33%;
             }
             .zip {
                 display: flex;
@@ -93,35 +100,49 @@
             <div class="title">
                 <p>회원가입</p>
             </div>
-            <div class="id">
-                <input type="text" id="idInput" placeholder="아이디 입력">
-                *아이디는 6-12자 이내로 입력하세요
-            </div>
-            <div class="pw">
+            <form id="joinForm" action="test.jsp" method="post">
+                <div class="id">
+                    <input type="text" id="idInput" name="id" placeholder="아이디 입력">
+                    <span>*아이디는 6-12자 이내로 입력하세요</span>
 
-                <input type="text" id="pwInput" placeholder="비밀번호 입력">
-                *아이디는 6-20자 이내로 입력하세요(영어 대소문자, 숫자, 특수문자 포함)
-            </div>
-            <div class="re-pw">
-                <input type="text" id="re-pwInput" placeholder="비밀번호 확인">
-            </div>
-            <div class="zip">
-                <input type="text" id="zipInput" placeholder="우편번호">
-                <button id="zipBtn" onclick="execDaumPostcode()">우편번호 찾기</button>
-            </div>
-            <div class="address1">
-                <input type="text" id="addressInput1" placeholder="도로명주소">
-                <input type="text" id="addressInput2" placeholder="지번주소">
-            </div>
-            <div class="address2">
-                <input type="text" id="addressInput3" placeholder="상세주소">
-                <input type="text" id="addressInput4" placeholder="읍면동">
-            </div>
-            <div class="footer">
-                <button id="cancleBtn">취소</button>
-                <button id="completeBtn">완료</button>
-            </div>
+                </div>
+                <div class="pw">
+                    <input type="password" id="pwInput" name="pw" placeholder="비밀번호 입력">
+                    <span>*비밀번호는 6-20자 이내로 입력하세요(영어 대소문자, 숫자, 특수문자 포함)</span>
 
+                </div>
+                <div class="re-pw">
+                    <input type="password" id="pwInput2" placeholder="비밀번호 확인">
+                </div>
+                <div class="phone">
+                    <select name="phone1" id="phone1">
+                        <option value="010">010</option>
+                        <option value="010">011</option>
+                        <option value="010">012</option>
+                    </select>
+                    <input type="text" id="phone2" name="phone2">
+                    <input type="text" id="phone3" name="phone3">
+                </div>
+                <div class="email">
+                    <input type="text" id="emailInput" placeholder="email" name="email">
+                </div>
+                <div class="zip">
+                    <input type="text" id="zipInput" placeholder="우편번호" name="zipInput">
+                    <button id="zipBtn" onclick="execDaumPostcode()">우편번호 찾기</button>
+                </div>
+                <div class="address1">
+                    <input type="text" id="addressInput1" placeholder="도로명주소" name="addressInput1">
+                    <input type="text" id="addressInput2" placeholder="지번주소" name="addressInput2">
+                </div>
+                <div class="address2">
+                    <input type="text" id="addressInput3" placeholder="상세주소" name="addressInput3">
+                    <input type="text" id="addressInput4" placeholder="읍면동" name="addressInput4">
+                </div>
+                <div class="footer">
+                    <button type="button" id="cancleBtn">취소</button>
+                    <button type="button" id="completeBtn">완료</button>
+                </div>
+            </form>
         </div>
         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
         <script>
@@ -189,6 +210,96 @@
                         }
                     })
                     .open();
+            }
+
+            let idInput = document.getElementById("idInput");
+            let pwInput = document.getElementById("pwInput");
+            let pwInput2 = document.getElementById("pwInput2");
+            let emailInput = document.getElementById("emailInput");
+            let phone2 = document.getElementById("phone2");
+            let phone3 = document.getElementById("phone3");
+            let completeBtn = document.getElementById("completeBtn");
+            let regexID = /^[a-zA-Z][a-zA-Z0-9]{5,11}$/;
+            let regexPW = /^[a-zA-Z0-9!@#$%^&*]{6,20}$/;
+            let regexEmail = /^[\w]+@[a-zA-Z0-9]+(\.[a-zA-Z-0-9]+){1,2}$/
+            let regexPhone = /^[0-9]{3,4}$/;
+
+            idInput.onkeyup = function () {
+                if (!regexID.test(idInput.value)) {
+                    idInput.style.boxShadow = "4px 4px 4px red";
+                } else {
+                    idInput.style.boxShadow = "4px 4px 4px green";
+                }
+            }
+
+            pwInput.onkeyup = function () {
+                if (!regexPW.test(pwInput.value)) {
+                    pwInput.style.boxShadow = "4px 4px 4px red";
+                } else {
+                    pwInput.style.boxShadow = "4px 4px 4px green";
+                }
+            }
+
+            emailInput.onkeyup = function () {
+                if (!regexEmail.test(emailInput.value)) {
+                    emailInput.style.boxShadow = "4px 4px 4px red";
+                } else {
+                    emailInput.style.boxShadow = "4px 4px 4px green";
+                }
+            }
+
+            phone2.onkeyup = function () {
+                if (!regexPhone.test(phone2.value)) {
+                    phone2.style.boxShadow = "4px 4px 4px red";
+                } else {
+                    phone2.style.boxShadow = "4px 4px 4px green";
+                }
+            }
+
+            phone3.onkeyup = function () {
+                if (!regexPhone.test(phone3.value)) {
+                    phone3.style.boxShadow = "4px 4px 4px red";
+                } else {
+                    phone3.style.boxShadow = "4px 4px 4px green";
+                }
+            }
+
+            pwInput2.onkeyup = function () {
+                if (pwInput.value === pwInput2.value) {
+                    pwInput2.style.boxShadow = "4px 4px 4px green";
+                } else {
+                    pwInput2.style.boxShadow = "4px 4px 4px red";
+                }
+            }
+
+            completeBtn.onclick = function () {
+                if (!regexID.test(idInput.value)) {
+                    alert("일치하지 않는 ID 형식입니다");
+                    return;
+                }
+                if (!regexPW.test(pwInput.value)) {
+                    alert("일치하지 않는 PW 형식입니다");
+                    return;
+                }
+                if (pwInput.value !== pwInput2.value) {
+                    alert("재입력된 비밀번호가 기존 비밀번호와 일치하지 않습니다.");
+                    return;
+                }
+                if (!regexPhone.test(phone2.value)) {
+                    alert("일치하지 않는 Phone 형식입니다");
+                    return;
+                }
+                if (!regexPhone.test(phone3.value)) {
+                    alert("일치하지 않는 Phone 형식입니다");
+                    return;
+                }
+                if (!regexEmail.test(emailInput.value)) {
+                    alert("일치하지 않는 Email 형식입니다");
+                    return;
+                }
+                document
+                    .getElementById("joinForm")
+                    .submit();
             }
         </script>
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="webtoonData.js"></script>
+        <style>
+            #table {
+                border-collapse: collapse;
+            }
+            #table th {
+                border-bottom: 2px solid black;
+                font-weight: bold;
+            }
+            #table tbody tr {
+                border-bottom: 1px dotted black;
+                font-weight: normal;
+            }
+            #writer {
+                width: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            let regex = /title="(.+?)".+?artist.+?">(.+?)<.+?rating.+?<strong>(.+?)</gms;
+            document.write("<div><table id = 'table'<thead id = 'thead'><tr id = 'tr'><th>요일</th><th>제목</th><th>작가</th><th>평점</th></tr></thead><tbody>");
+            while (regex.exec(dataMon) !== null) {
+                document.write("<tr><td>월요일</td><td>"+RegExp.$1+"</td><td>"+RegExp.$2+"</td><td>"+RegExp.$3+"</td></tr>");
+            }
+            document.write("</tbody></table></div>");
+        </script>
+    </body>
+</html>
