@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+        <style>
+            .container > div{
+                border: 1px solid black;
+                width: 100px;
+                height: 100px;
+            }
+        </style>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <div></div>
+            <button class="btn">1div</button>
+            <div></div>
+            <button class="btn">2div</button>
+            <div ></div>
+            <button class="btn">3div</button>
+            <div></div>
+            <button class="btn">4div</button>
+        </div>
+        <script>
+            $(".btn").on("click",function(){
+                $(this).prev().css({
+                    //0xffffff-> colorHex(16진수) 끝수 
+                    //toString(n) : 숫자를 n진수 문자열로 convert
+                    //Math.random()*max : 0 ~ max
+                    //Math.round(n)/Math.floor(n) : 반올림/내림
+                    "background-color" : "#"+Math.round(Math.random()*0xffffff).toString(16)
+                });
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+        <style>
+            .container {
+                width: 450px;
+                height: 150px;
+            }
+            .container > div{
+                margin: 10px;
+            }
+        </style>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <p>1번</p>
+            <p>2번</p>
+            <p>3번</p>
+            <p>4번</p>
+            <div class="input">
+                <input type="text" id="numInput" placeholder="줄 번호를 입력하세요">
+                <input type="text" id="colorInput" placeholder="색을 입력하세요">
+                <button id = "button"> 적용 </button>
+            </div>
+        </div>
+        
+        <script>
+            $("#button").on("click", function(){
+                $("p:nth-child("+$("#numInput").val()+")").css({
+                    "background-color" : $("#colorInput").val()
+                });
+                $("#numInput").val("");
+                $("#colorInput").val("");
+            });
+        </script>
+    </body>
+</html>
