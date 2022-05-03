@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="clsFirst">clsFirst
+                <div class="clsSecond">clsSecond
+                    <p class="clsThird">clsThird</p>
+                    <p class="clsThird">clsThird</p>
+                    <p class="clsThird">clsThird</p>
+                </div>
+                <p class="clsSecond">clsSecond</p>
+                <h4 class="clsSecond">clsSecond</h4>
+            </div>
+            <div class="clsFirst">clsFirst
+                <div class="clsSecond">clsSecond
+                    <div class="clsThird">clsThird</div>
+                </div>
+            </div>
+        </div>
+        <script>
+            /*
+             자식 선택 대상요소.children() : 대상요소 기준으로 바로 아래 자식만 모두 선택
+            */
+            //.clsFirst 모든 자식 선택 border 속성 추가
+            $(".clsFirst")
+                .children()
+                .css({border: "2px dotted black"});
+
+            /*
+            대상요소.children(선택자) -> 대상요소의 바로 아래 자식 중에서 선택자에 해당하는 자식만 선택
+            */
+            //.clsSecond 자식 중에서 태그가 p태그인 첫번째 자식 선택
+            $(".clsSecond")
+                .children("p:first-child")
+                .css({"background-color": "pink"});
+
+            /*
+            대상요소.find(선택자) : 대상요소를 기준으로 하위 요소 중 선택자에 해당하는 요소를 모두 선택
+             */
+            $(".clsSecond")
+                .find("p")
+                .css({color: "red"});
+            $(".container")
+                .find("p")
+                .css({"font-weight": "bold"})
+            $(".container")
+                .find("*")
+                .css({"font-family": "georgia"});
+            /*
+            eq(요소의 인덱스번호): 인덱스번호에 해당하는 요소를 선택
+            */
+            $(".container")
+                .find("*")
+                .eq(3)
+                .css({"background-color": "skyblue"});
+            /*
+            대상요소.parent() : 대상요소를 기준으로 부모 선택
+            대상요소.parents() : 대상요소를 기준으로 모든 상위 요소를 선택
+            */
+            console.log("parent : " + $("clsThird").parent());
+            console.log("parents : " + $("clsThird").parents());
+
+            //clsThird 상위 요소 중에서 clsSecond 한테 border 2px solid green
+            $(".clsThird")
+                .parents(".clsSecond")
+                .css({border: "2px solid green"});
+        </script>
+    </body>
+</html>

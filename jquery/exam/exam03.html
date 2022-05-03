@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            div[id^=box] {
+                background-color: aqua;
+                color: blue;
+                width: 300px;
+                height: 300px;
+            }
+        </style>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="div">
+                <div class="box" id="box1">box1</div>
+                <button class="button" id="button1" value="box1">Change 1st Box</button>
+            </div>
+            <div class="div">
+                <div class="box" id="box2">box2</div>
+                <button class="button" id="button2" value="box2">Change 2nd Box</button>
+            </div>
+            <div class="div">
+                <div class="box" id="box3">box3</div>
+                <button class="button" id="button3" value="box3">Change 3rd Box</button>
+            </div>
+            <button id="changeAll">Change All</button>
+        </div>
+        <script>
+            function change(box) {
+                box.css({"background-color": "pink", color: "red"});
+            }
+
+            $(".button").on("click",function(){
+                change($("#"+$(this).val()));
+            });
+            $("#changeAll").on("click",()=>change($(".box")));
+
+        </script>
+    </body>
+</html>

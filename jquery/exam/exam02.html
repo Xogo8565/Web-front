@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+        <style>
+            .resultDiv > .console {
+                border: 1px dotted black;
+                height: 100px;
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="inputDiv">
+                <input class="input" type="text">
+                <button class="button">완료</button>
+            </div>
+            <div class="resultDiv">
+                <h3>결과</h3>
+                <div class="console"></div>
+            </div>
+        </div>
+
+        <script>
+            // 완료버튼
+            $(".inputDiv>.button").on("click", function () {
+                $(".inputDiv>input").val("");
+                $(".resultDiv>.console").html($(".inputDiv>.input").val());
+                $(".resultDiv>.console").css({border: "1px hotpink solid"})
+            });
+            /*
+            // 입력과 동시에
+            $(".inputDiv>.input").on("keydown", function () {
+                $(".resultDiv>.console").html($(".inputDiv>.input").val());
+                $(".resultDiv>.console").css({border: "1px hotpink solid"})
+            });
+            */
+        </script>
+    </body>
+</html>

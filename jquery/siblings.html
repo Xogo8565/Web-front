@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <p>
+                This is p
+            </p>
+            <span>
+                This is span
+            </span>
+            <h1>This is h1</h1>
+            <h2>This is h2</h2>
+            <h3>This is h3</h3>
+            <p>This is p2</p>
+        </div>
+        <p>Container's brother
+            <span>This is span2</span>
+        </p>
+        <h1>Container's brother</h1>
+
+        <script>
+            /*
+            대상요소.next() : 대상요소 기준으로 다음에 오는 요소 선택
+            */
+            $("span")
+                .next()
+                .css({color: "red"});
+            //부모의 형제 선택
+            console.log($("h1").parent().next());
+
+            //대상요소.siblings() : 대상요소를 기준으로 모든 형제 요소 선택(대상요소는 제외)
+            $("h2")
+                .siblings()
+                .css({"background-color": "skyblue"});
+            $("h2")
+                .siblings("span")
+                .css({color: "white"});
+
+            //h1 태그를 기준으로 부모 요소의 형제 중 h1 태그한테 background-color : red
+            $("h1")
+                .parent()
+                .siblings("h1")
+                .css({"background-color": "red"});
+            /*
+            nextAll() : 대상요소를 기준으로 다음에 오는 모든 요소 선택
+            */
+            console.log($("h1").parent().nextAll("h1"));
+            
+            /*
+            대상요소.prev() : 대상요소를 기준으로 이전에 위치한 형제 요소 선택
+            대상요소.prevAll() : 대상요소를 기준으로 이전에 위치한 모든 형제 요소 선택
+            */
+           $("h3").prev().on("click", ()=> alert("이전 형제 요소 감지!"));
+           $("span").prevAll("p").on("mouseover", () => alert("Detected!"));
+
+           /*
+           대상요소.first() : 가장 처음에 만들어진 대상요소를 선택
+           대상요소.last()
+           */
+          $("p").first().css({
+              color : "blue"
+          });
+          $("p").last().css({
+              color : "green"
+          });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+        <style>
+            div {
+                border: 1px solid black;
+                width: 200px;
+                height: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="btnAll" value="btnAll">Change All</button>
+        <div id="idDiv">First Div</div>
+        <button id="FirstBtn" value="firstBtn">First Button</button>
+        <div class="clsDiv">Second Div</div>
+        <button id="secondBtn" value="secondBtn">Second Button</button>
+        <div class="clsDiv">Third Div</div>
+
+        <script>
+            //javascript 요소 선택
+            /*
+            let idDiv = document.getElementById("idDiv");
+            console.log(idDiv);
+            //getElementsBy ~ : 요소가 배열로 반환
+            let clsDiv = document.getElementsByClassName("clsDiv");
+            console.log(clsDiv);
+            // 개별 요소에 접근하기 위해서는 인덱스 값을 이용
+            console.log(clsDiv[0].innerHTML);
+            */
+
+            /*jQuery 요소 선택
+                $(선택자) : $ 제이쿼리를 의미
+                 -> 태그명, 클래스명, 아이디 등 모든 선택자 사용가능
+                 jquery를 이용해 요소를 선택해오면 반환값은 jquery 배열
+            */
+            console.log($("#idDiv"));
+            console.log($("#idDiv")[0]);
+
+            // 자바스크립트와 같은 방식으로 접근 불가 $("#idDiv").style.color = "red"; 불가
+            // $("#idDiv")[0].style.color = "red"; 가능 css 속성을 변경하고 싶으면 jquery 가 제공하는 css 함수
+            // 사용 css(속성명,  속성값);
+            $("#idDiv").css("color", "red");
+
+            // console.log($(".clsDiv")); javascript 의 이벤트
+            // document.getElementById("idDiv").onclick = function(){    alert("첫번째 div를
+            // 클릭했습니다."); } jQuery의 이벤트
+            $("#idDiv").on("click", function () {
+                alert("첫번째 div를 클릭했습니다.")
+            });
+            // clsDiv 클래스 명을 가진 요소한테 그 요소를 클릭하면 그 요소 안에 있는 text 값을 alert으로 띄워주는 이벤트 클래스명을
+            // 이용해 요소들을 담고 있는 배열에 onclick, addEventListener는 사용할 수 없음
+            /*
+            let clsDiv = document.getElementsByClassName("clsDiv");
+            for(let div of clsDiv){
+                div.addEventListener("click",function(e){
+                    // div 변수
+                    //alert(div.innerHTML);
+                    // this
+                    //alert(this.innerHTML);
+                    // 콜백함수 매개변수
+                    alert(e.target.innerHTML);
+                })
+            }
+            */
+            // jQuery를 이용하면 하나의 요소나 여러개의 요소에 같은 방식으로 이벤트 리스너 추가가 가능하기 때문에 더 간편
+            $(".clsDiv").on("click", function () {
+                //javascript 의 innerHTML == jquery의 html()
+                alert($(this).html());
+            })
+            $("button").on("click", function () {
+                // javascript 의 value == jquery 의 val()
+                console.log($(this).val());
+            })
+
+            // div에 마우스가 올라가면 진입이라는 문자열을 원래 문자열 아래로 추가
+            $("div[class*=Div]").on("mouseenter", function () {
+                /*
+                javaScript ->>
+                대상요소.append(값/요소) : 대상요소를 기준으로 그 요소의 안쪽에 값이나 요소를 뒤로 추가하고 싶을 때 사용하는 게 append
+                대상요소.prepend(값/요소) : 대상요소 안쪽에 기존 요소를 기준으로 앞쪽에 추가
+
+                <div>
+                    <span class='prepend'>prepend</span>
+                    <p>기존요소</p>
+                    <span class='append'>append</span>
+                </div>
+                ** 동적 요소 : 페이지가 로드 되었을 때는 존재하지 않았던, 사용자의 액션이나 혹은 서버와의 통신에 따라 따른 결과값으로 페이지에 추가되는 요소들을 동적 요소라고 표현
+                                */
+                $(this).append("<br>진입");
+            })
+
+            //changeAll 클릭시 모든 div의 스타일 변경
+            $("#btnAll").on("click", function(){
+                $("div").css({
+                    "background-color" : "#9edbac",
+                    border : "1px solid black",
+                    color : "hotpink"
+                });
+            })
+        </script>
+    </body>
+</html>
