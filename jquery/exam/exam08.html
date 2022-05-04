@@ -12,17 +12,17 @@
             $(document).ready(function () {
                 $("#newFileBtn").on("click", function () {
                     $(".fileList").append(
-                        "<div class = 'file'><input type ='file'><button id ='deleteFileBtn'>-</button" +
+                        "<div class = 'file'><input type ='file'><button class ='deleteFileBtn'>-</button" +
                         "></div>"
                     )
                 })
-                $(".fileList").on("click", "#deleteFileBtn", function () {
+                $(".fileList").on("click", ".deleteFileBtn", function () {
                     $(this).parent().remove();
                 })
             })
         </script>
         <style>
-            #deleteFileBtn {
+            .deleteFileBtn {
                 background-color: red;
                 color: white;
                 border: none;

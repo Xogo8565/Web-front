@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+        <title>Document</title>
+        <style>
+            .innerDiv {
+                height: 200px;
+                width: 200px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="innerDiv">Div1</div>
+        <div class="btnDiv">
+            <button id="showBtn">Div1 보이기</button>
+            <button id="hideBtn">Div1 감추기</button>
+            <button id="toggleBtn">Div1 토글</button>
+        </div>
+        <script>
+            //hide() : display none 속성 적용
+            $("#hideBtn").click(()=>$(".innerDiv").hide(500));
+            //show(): display block 속성 적용
+            $("#showBtn").click(()=>$(".innerDiv").show(500));
+            //tiggke() : hide() + show()
+            $("#toggleBtn").click(()=>$(".innerDiv").toggle(600));
+        </script>
+    </body>
+</html>

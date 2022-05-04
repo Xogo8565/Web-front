@@ -13,7 +13,7 @@
                 border: 1px solid black;
                 width: 400px;
                 height: 400px;
-                overflow-y: scroll;
+                overflow-y: auto;
             }
         </style>
         <title>Document</title>
@@ -37,10 +37,10 @@
                 $(".contentBox").append("<div>Contents Message Here :" + count++ + " </div>");
                 //prop(속성) -> 그 속성에 들어있는 value 반환
                 //{menu : americano} -> americano 반환
-                //prop.("scrollHeight"): 스크롤의 높이 값 반환
-                console.log($(".contentBox").props("scrollHeight"));
+                //prop("scrollHeight"): 스크롤의 높이 값 반환
+                console.log($(".contentBox").prop("scrollHeight"));
                 //스코롤바의 높이 값을 scrollTop함수에 넘겨주면 스코롤바를 가장 아래쪽으로 내려주는 것과 같음.
-                $(".contentBox").scrollTop($(".contentBox").height());
+                $(".contentBox").scrollTop($(".contentBox").prop("scrollHeight"));
             });
         </script>
     </body>

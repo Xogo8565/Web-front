@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+        <style>
+            * {
+                box-sizing: border-box;
+                border: 1px solid black;
+            }
+            .emoji {
+                width: 600px;
+                height: 600px;
+            }
+            .emojiList {
+                width: 100%;
+                height: 90%;
+                display: grid;
+                grid-template-columns: repeat(33%,3);
+                grid-template-rows: repeat(33%,3);
+                gap: 10px;
+                border: 1px solid black;
+            }
+            #emojiContainer1 {
+                grid-column: 1/2;
+                grid-row: 1/2;
+                position: relative;
+            }
+            #emojiContainer2 {
+                grid-column: 2/3;
+                grid-row: 1/2;
+                position: relative;
+            }
+            #emojiContainer3 {
+                grid-column: 3/4;
+                grid-row: 1/2;
+                position: relative;
+            }
+            #emojiContainer4 {
+                grid-column: 1/2;
+                grid-row: 2/3;
+                position: relative;
+            }
+            #emojiContainer5 {
+                grid-column: 2/3;
+                grid-row: 2/3;
+                position: relative;
+            }
+            #emojiContainer6 {
+                grid-column: 3/4;
+                grid-row: 2/3;
+                position: relative;
+            }
+            #emojiContainer7 {
+                grid-column: 1/2;
+                grid-row: 3/4;
+                position: relative;
+            }
+            #emojiContainer8 {
+                grid-column: 2/3;
+                grid-row: 3/4;
+                position: relative;
+            }
+            #emojiContainer9 {
+                grid-column: 3/4;
+                grid-row: 3/4;
+                position: relative;
+            }
+            div[id^="emojiContainer"] img {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                cursor: pointer;
+            }
+            .footer {
+                height: 10%;
+            }
+            .icon {
+                width: 10%;
+                height: 100%;
+                padding: 10px;
+            }
+            #iconImg {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="emoji">
+            <div class="emojiList">
+                <div id="emojiContainer1">
+                    <img src="img/1.gif" alt="">
+                </div>
+                <div id="emojiContainer2">
+                    <img src="img/2.gif" alt="">
+                </div>
+                <div id="emojiContainer3">
+                    <img src="img/3.gif" alt="">
+                </div>
+                <div id="emojiContainer4">
+                    <img src="img/4.png" alt="">
+                </div>
+                <div id="emojiContainer5">
+                    <img src="img/5.png" alt="">
+                </div>
+                <div id="emojiContainer6">
+                    <img src="img/6.png" alt="">
+                </div>
+                <div id="emojiContainer7">
+                    <img src="img/7.png" alt="">
+                </div>
+                <div id="emojiContainer8">
+                    <img src="img/8.gif" alt="">
+                </div>
+                <div id="emojiContainer9">
+                    <img src="img/9.gif" alt="">
+                </div>
+            </div>
+            <div class="footer">
+                <div class="icon"><img src="img/emoticonIcon.png" alt="" id="iconImg"></div>
+            </div>
+        </div>
+        <script>
+            $(".icon").click(()=>$(".emojiList").fadeToggle());
+        </script>
+    </body>
+</html>

@@ -24,14 +24,14 @@
                 width: 99%;
                 height: 50px;
             }
-            #list {
+            .list {
                 display: flex;
             }
-            #list span {
+            .list span {
                 flex-basis: 80%;
                 border: 0.5px solid silver;
             }
-            #list button {
+            .list button {
                 flex-basis: 20%;
             }
         </style>
@@ -41,10 +41,9 @@
                 $("#linkInput").on("keyup", function (e) {
                     // e.keycode -> 입력한 키값을 반환
                     if (e.keyCode === 13) {
-
                         $("#listContainer").append(
-                            "<div id = 'list'><span>" + $("#linkInput").val() + "</span><button id = 'delet" +
-                            "eBtn'>삭제</button><div>"
+                            "<div class = 'list'><span>" + $("#linkInput").val() + "</span><button class = " +
+                            "'deleteBtn'>삭제</button><div>"
                         );
                         $("#linkInput").val("");
                     }
@@ -58,10 +57,12 @@
 
                     상위 요소를 기준으로 on 함수를 이용해 이벤트 핸들러를 부여하되, 실제로 그 이벤트를 감지시켜주고 싶은 요소를 on 함수의 2번째 인자값으로 넘겨준다
                 */
-                $(".bookmark").on("click", "#deleteBtn", function () {
-                    //remove() 요소 삭제 함수 -> #list를 삭제하면 하위 요소도 함께 삭제됨
-                    //대사요소.empty() -> 대상요소가 갖고 이ㅐㅆ는 모든 하위요소를 제거
-                    $(this).parent().remove();
+                $(".bookmark").on("click", ".deleteBtn", function () {
+                    // remove() 요소 삭제 함수 -> #list를 삭제하면 하위 요소도 함께 삭제됨 대사요소.empty() -> 대상요소가 갖고 이ㅐㅆ는
+                    // 모든 하위요소를 제거
+                    $(this)
+                        .parent()
+                        .remove();
                     //$("#list").emply();
                 });
             });

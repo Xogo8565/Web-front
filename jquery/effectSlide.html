@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+        <style>
+            div {
+                width: 300px;
+                padding: 10px;
+                border: 1px solid black;
+            }
+            #bottom {
+                display: none;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                /*
+                $("#upper").hover(function () {
+                    $("#bottom").slideDown();
+                    // slideDown() -> display : none 속성을 block 으로 변경 slideUp() -> display : none 으로
+                    // 변경
+                });
+                $("#upper").mouseleave(() => $("#bottom").slideUp());*/
+                $("#upper").hover(function(){
+                    $("#bottom").slideToggle(1200); // slideUp()+slideDown() 
+                    //인자값 -> milliSecond
+                });
+            });
+        </script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="upper">UpperDiv</div>
+        <div id="bottom">BottomDiv</div>
+
+    </body>
+</html>
