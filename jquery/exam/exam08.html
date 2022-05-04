@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function () {
+                $("#newFileBtn").on("click", function () {
+                    $(".fileList").append(
+                        "<div class = 'file'><input type ='file'><button id ='deleteFileBtn'>-</button" +
+                        "></div>"
+                    )
+                })
+                $(".fileList").on("click", "#deleteFileBtn", function () {
+                    $(this).parent().remove();
+                })
+            })
+        </script>
+        <style>
+            #deleteFileBtn {
+                background-color: red;
+                color: white;
+                border: none;
+            }
+        </style>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="title">
+                파일추가
+                <button id="newFileBtn">파일 추가</button>
+            </div>
+            <div class="fileList"></div>
+        </div>
+
+    </body>
+</html>

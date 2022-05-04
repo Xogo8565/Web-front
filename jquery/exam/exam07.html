@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+        <style>
+            .container {
+                height: 4000px;
+                border: 1px solid black;
+            }
+            .scrollTop {
+                height: 50px;
+                width: 50px;
+                position: fixed;
+                bottom: 5%;
+                right: 5%;
+            }
+            .scrollTop img {
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $(".scrollTop").on("click",()=>$(window).scrollTop(0));
+            });
+        </script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="scrollTop"><img src="arrow-circle-up-angle-top-512.webp"></div>
+        </div>
+    </body>
+</html>

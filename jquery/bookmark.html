@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+        <style>
+            .container {
+                width: 400px;
+                height: 200px;
+            }
+            .bookmark {
+                border: 1px solid black;
+            }
+            .bookmark #listTitle {
+                text-align: center;
+            }
+            #linkInput {
+                width: 99%;
+                height: 50px;
+            }
+            #list {
+                display: flex;
+            }
+            #list span {
+                flex-basis: 80%;
+                border: 0.5px solid silver;
+            }
+            #list button {
+                flex-basis: 20%;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+
+                $("#linkInput").on("keyup", function (e) {
+                    // e.keycode -> 입력한 키값을 반환
+                    if (e.keyCode === 13) {
+
+                        $("#listContainer").append(
+                            "<div id = 'list'><span>" + $("#linkInput").val() + "</span><button id = 'delet" +
+                            "eBtn'>삭제</button><div>"
+                        );
+                        $("#linkInput").val("");
+                    }
+                });
+                /*
+                    기존의 방식대로 접근하면 페이지가 로드될 당시에 존재하는 요소들에게는 이벤트 처리가 잘 되지만
+                    동적인 요소들에는 이벤트 처리가 먹히지 않음.
+
+                    페이지가 로드 될 때에 항상 존재하는 동적 요소의 상위 요소에 이벤트를 부여
+                    완전한 상위요소인 document / 지금 상황에서는 bookmark
+
+                    상위 요소를 기준으로 on 함수를 이용해 이벤트 핸들러를 부여하되, 실제로 그 이벤트를 감지시켜주고 싶은 요소를 on 함수의 2번째 인자값으로 넘겨준다
+                */
+                $(".bookmark").on("click", "#deleteBtn", function () {
+                    //remove() 요소 삭제 함수 -> #list를 삭제하면 하위 요소도 함께 삭제됨
+                    //대사요소.empty() -> 대상요소가 갖고 이ㅐㅆ는 모든 하위요소를 제거
+                    $(this).parent().remove();
+                    //$("#list").emply();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="bookmark">
+                <div id="listTitle">
+                    <h3>
+                        북마크 리스트
+                    </h3>
+                </div>
+                <div id="listContainer"></div>
+            </div>
+            <div class="inputDiv">
+                <input type="text" id="linkInput" placeholder="저장할 링크 입력">
+            </div>
+        </div>
+
+    </body>
+</html>

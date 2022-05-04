@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script
             src="https://code.jquery.com/jquery-3.6.0.js"
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
             crossorigin="anonymous"></script>
-    <style>
-        .contentBox{
-            border: 1px solid black;
-            width: 400px;
-            height: 400px;
-            overflow-y: scroll;
-        }
-    </style>
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <div class="contentBox"></div>
-        <div class="input">
-            <button id="insertTop">위로 추가하기</button>
-            <button id="insertBottom">아래로 추가하기</button>
+        <style>
+            .contentBox {
+                border: 1px solid black;
+                width: 400px;
+                height: 400px;
+                overflow-y: scroll;
+            }
+        </style>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="contentBox"></div>
+            <div class="input">
+                <button id="insertTop">위로 추가하기</button>
+                <button id="insertBottom">아래로 추가하기</button>
+            </div>
         </div>
-    </div>
-    <script>
-        let count = 1;
-        $("#insertTop").on("click",function(){
-            $(".contentBox").prepend("<div>Contents Message Here :"+ count +" </div>");
-            count++;
-
-            $(".contentBox").scrollTop(0);
-        });
-        $("#insertBottom").on("click",function(){
-            $(".contentBox").append("<div>Contents Message Here :"+ count +" </div>");
-            count++;
-
-            $(".contentBox").scrollTop($(".contentBox").height());
-        });
-    </script>
-</body>
+        <script>
+            let count = 1;
+            $("#insertTop").on("click", function () {
+                $(".contentBox").prepend("<div>Contents Message Here :" + count++ + " </div>");
+                //스크롤을 상단으로부터 0만큼 떨어지는 위치로 이동
+                $(".contentBox").scrollTop(0);
+            });
+            $("#insertBottom").on("click", function () {
+                $(".contentBox").append("<div>Contents Message Here :" + count++ + " </div>");
+                //prop(속성) -> 그 속성에 들어있는 value 반환
+                //{menu : americano} -> americano 반환
+                //prop.("scrollHeight"): 스크롤의 높이 값 반환
+                console.log($(".contentBox").props("scrollHeight"));
+                //스코롤바의 높이 값을 scrollTop함수에 넘겨주면 스코롤바를 가장 아래쪽으로 내려주는 것과 같음.
+                $(".contentBox").scrollTop($(".contentBox").height());
+            });
+        </script>
+    </body>
 </html>
