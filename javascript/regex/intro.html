@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id = "userInput">
+    <button type="button" id = "checkBtn">버튼</button>
+    <script>
+        /*
+        자바 스크립트에서의 정규표현식
+        
+        정규표현식 사용하기 위해 표현식 생성법
+        1. /패턴/ -> 슬래시를 사용하면 표ㄴ식 사용
+        let regex - /패턴/;
+
+        2. RegExp 패턴 사용
+        let regex = new RegExp(/패턴/);
+
+
+        --RagExp 함수
+        test(대상 문자열) : 대상 문자열을 기준으로 패턴식에 일치하는 문자열이 있으면 true/false를 반환 
+        exec(대상 문자열) : 대상 문자열을 기준으로 패턴식에 일치하는 문자열을 찾아 배열로 반환, 없으면 null 반환
+       
+        --String 함수
+        대상 문자열.match(패턴식) : 대상문자열을 기준으로 패턴식에 일치하는 문자열이 있으면 배열로 반환 
+        대상 문자열.search(패턴식) : 대상 문자열을 기준으로 패턴식에 일치하는 문자열의 인덱스를 반환, 못찾으면 -1 반환
+        */
+
+        let sample = "sky snew snow snows snooze snums snow snows slowly";
+        // snows 의 문자 패턴 찾기
+        let regex1 = /snows/g;
+        let regex2 = new RegExp(/snows/g);
+        /*
+        표현식.test(대상 문자열)
+        포인터가 있어 한 번 실행이 되고 나면 결과값을 기억하지만
+        g 플래그를 붙여주지 않으면 포인터가 초기화 된다.
+        */
+       /*
+       rs = regex1.test(sample);
+       console.log(rs); //snows1
+       rs = regex1.test(sample);
+       console.log(rs); //snows2
+       rs = regex1.test(sample);
+       console.log(rs); //f
+       
+       rs = regex2.test(sample);
+       console.log(rs); //snows1
+       rs = regex2.test(sample);
+       console.log(rs); //snows2
+       rs = regex2.test(sample);
+       console.log(rs); //f
+        */
+
+        //포현식을 for문 안쪽에서 선언하면 반복문이 돌 때마다 표현식이 초기화되면서 
+        // 함수가 첫번째 값을 기준으로만 동작
+       /*
+       for(let i = 0; i < 5; i++){
+           let regex = /snow/g;
+           console.log(regex.test(sample));
+       }
+       */
+      //checkBTn을 눌렀을 때 입력값이 hello 면 정답 alert, 아니면 오답 alert
+      
+      document.getElementById("checkBtn").onclick = function(){
+                        let regex =/hello/g;
+            if(regex.test(document.getElementById("userInput").value)){
+                alert("정답");
+            }else{
+                alert("오답");
+            }
+       }
+       /*
+       표현식.exec(대상 문자열) : 대상 문자열이 있으면 배열/ null
+       g 옵션 안 주면 포인터 초기화
+
+       0번 : 일치하는 문자열
+       index : 일치하는 문자열의 인덱스
+       iuput : 대상 문자열
+       */
+       /*sample = "심상 겨울 도롱뇽 가을 여름 막내 사과 파랑 심상 달무리";
+       let regex = /심상/g;
+       
+       rs = regex.exec(sample);
+       console.log(rs);
+       // exec 역시 포인터의 개념이 있어 현재 가리키고 있는 값을 기억함
+       rs = regex.exec(sample);
+       console.log(rs);
+       rs = regex.exec(sample);
+       console.log(rs); // null 반환
+       */
+
+       //sample = "심상 달구지 겨울 도롱뇽 가을 여름 막내 사과 파랑 심수봉 달무리";
+       // 심상 달구지 / 심수봉 달무리
+       //let regex = /(심.+?)(달.{2})/g;
+       /*
+       rs = regex.exec(sample);
+       console.log(rs); // $&, &1, &2
+       console.log("rs[0] : " , rs[0]); // $&
+       console.log("rs[1] : " , rs[1]); // $1
+       console.log(RegExp.$1);
+       console.log("rs[2] : " , rs[2]); // $2
+       console.log(RegExp.$2);
+
+       rs = regex.exec(sample);
+       console.log("rs2 : " , rs);
+       */
+
+       /*
+       while(regex.exec(sample)!==null){
+           console.log(RegExp.$1 + " : " + RegExp.$2);
+       }
+       */
+       
+       /*
+         대상문자열.search(표현식) : 가장 처음 일치하는 문자열의 인덱스 값이 반환
+         일치하는 문자열이 없으면 -1 반환
+         -> 여러 번 사용해도 첫번째 일치하는 문자열을 기준
+
+       */
+       sample = "심상 달구지 겨울 도롱뇽 가을 여름 막내 사과 파랑 심수봉 달무리";
+       let regex = /(심.+?)(달.{2})/g;
+       /*
+       rs = sample.search(regex);
+       console.log(rs);
+
+       rs = sample.search(regex);
+       console.log(rs);
+       */
+      /*
+       대상문자열.match(표현식) : 일치하는 문자열의 배열을 반환해주는 함수
+       일치하는 문자열이 없으면 null 반환
+       
+      */
+     /*
+      rs = sample.match(regex);
+      console.log(rs);
+       */
+
+
+      /*
+      문자열.replace(대상 값, 변환할 값) : 문자열에서 대상 값을 변환할 값으로 변환
+      문자열.replace(표현식, 변환할 값)
+      */
+      console.log("test".replace("e","i"));
+
+      rs = sample.replace(regex, "none");
+      console.log(rs);
+     
+      let phone = "010-1234-1234";
+      regex = /-/g;
+
+      rs = phone.replace(regex,"");
+      console.log(rs);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            window.onload = function () {
+                /*
+                유효성 검사
+                -> 클라이언트 쪽에서 사용자의 입력값에 대해서 유효한 값인지 검사하고
+                유효하지 않다면 서버에 애초에 전송되지 않도록 알림을 띄워주거나
+                style을 이용해 경고문구를 띄워줌
+                -> 그리고 중간에 코드의 흐름을 막아주기 위해서는 return 키워드를 활용
+                */
+                document
+                    .getElementById("submitBtn")
+                    .onclick = function () {
+                        let id = document.getElementById("id");
+                        let pw = document.getElementById("pw");
+                        let email = document.getElementById("email");
+                        //id 유효성검사
+                        let regexId = /^[a-zA-Z0-9]{6,10}$/;
+                        //pw 유효성검사
+                        let regexPw = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,15}$/;
+                        //email
+                        let regexEmail = /^[\w]+@[a-zA-Z0-9]+(\.[a-zA-Z-0-9]+){1,2}$/;
+
+                        if (!regexId.test(id.value)) { // 패턴에 일치하지 않는다면
+                            alert("아이디 형식에 일치하지 않는 입력값입니다.");
+                            // return 이라는 키워드를 만나면 그 즉시 함수가 종료된다.
+                            return;
+                        }
+                        if (!regexPw.test(pw.value)) {
+                            alert("비밀번호 형식에 일치하지 않습니다.");
+                            return;
+                        }
+                        if (!regexEmail.test(email.value)) {
+                            alert("이메일 형식에 일치하지 않습니다.");
+                            return;
+                        }
+
+                        // submit() : form 태그를 기준으로 해서 해당 form 을 서버에 제출하고 싶을때 사용하는 함수
+                        document
+                            .getElementById("joinForm")
+                            .submit();
+                    }
+            }
+        </script>
+
+        <form id="joinForm" action="test.jsp" method="post">
+            <div>
+                <input type="text" id="id" name="id" placeholder="id입력">
+                <span>아이디는 6~10자 이내의 영문자, 숫자만 사용이 가능합니다.</span>
+            </div>
+            <div>
+                <input type="password" id="pw" name="pw" placeholder="pw입력">
+                <span>비밀번호는 6~15자 이내의 영문자, 숫자, 특수문자만 사용 가능합니다.</span>
+            </div>
+            <div>
+                <input type="text" id="email" name="email" placeholder="email입력">
+            </div>
+            <button type="button" id="submitBtn">회원가입</button>
+        </form>
+    </body>
+</html>

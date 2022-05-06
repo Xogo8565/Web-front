@@ -185,6 +185,7 @@
             $("div[class^='emojiContainer']").click(function(){                               
                 $(".chatLog").append("<div class = 'newChat'>"+$(this)[0].innerHTML+"</div>");
                 $(".chatLog").scrollTop($(".chatLog").prop("scrollHeight")); 
+                $(".emoji").css("display","none");
             })
         </script>
     </body>
