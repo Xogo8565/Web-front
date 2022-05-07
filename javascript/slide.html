@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                border: 1px solid black;
+            }
+            .container {
+                width: 336px;
+                position: relative;
+            }
+            .slideContainer {
+                width: 100%;
+                display: flex;               
+                overflow-x: hidden;
+            }
+            .imgContainer {
+                flex-flow: 1;
+                position: relative;
+            }
+            .imgContainer img {
+                width: 336px;
+            }
+            .buttonContainer {
+                width: 100%;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                justify-content: space-between;
+            }
+            .buttonContainer button {
+                height: 50px;
+                background-color: #eee3e345;
+                border: none;
+            }           
+        </style>
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="slideContainer">
+                <div class="imgContainer"><img src="/layout/img/1.jpg" alt=""></div>
+                <div class="imgContainer"><img src="/layout/img/2.jpg" alt=""></div>
+                <div class="imgContainer"><img src="/layout/img/3.jpg" alt=""></div>
+                <div class="imgContainer"><img src="/layout/img/4.jpg" alt=""></div>
+            </div>
+            <div class="buttonContainer">
+                <button id="prevButton"><</button><button id="nextButton">></button>
+            </div>
+        </div>
+        <script>
+            const prevButton = $("#prevButton");
+            const nextButton = $("#nextButton");
+            const slideContainer = $(".slideContainer");
+            let imgContainer = $(".imgContainer");
+            const imgWidth = 338; //px
+            
+            let currentIdx = 0;
+            const slideLength = imgContainer.length;
+            
+            let firstImg = imgContainer.first()[0];
+            let lastImg = imgContainer.last()[0];
+            let firstImgCopy = firstImg.cloneNode(true);
+            let lastImgCopy = lastImg.cloneNode(true);
+
+            slideContainer.append(firstImgCopy);
+            slideContainer.prepend(lastImgCopy);
+            imgContainer.css("transform","translateX(-" + imgWidth +"px)");
+
+            nextButton.click(function(){
+                if(currentIdx<slideLength-1){
+                    currentIdx++;
+                    imgContainer.css({
+                        transform: "translateX(-"+imgWidth*(currentIdx+1)+"px)",
+                        transition : "0.2s"
+                    });
+                }
+                
+                if(currentIdx === slideLength-1){
+                    setTimeout(function(){
+                        imgContainer.css({
+                        transform: "translateX(0px)",
+                        transition : "0s"
+                    });
+                    }, "201");                   
+                    currentIdx = -1;
+                }
+
+                console.log(currentIdx);
+            });
+
+            prevButton.click(function(){
+                if(currentIdx >= 0){
+                    currentIdx--;
+                    imgContainer.css({
+                        transform: "translateX(-"+imgWidth*(currentIdx+1)+"px)",
+                        transition : "0.2s"
+                    })
+                }  
+                
+                if(currentIdx < 0){
+                    setTimeout(function(){
+                        imgContainer.css({
+                        transform: "translateX(0px)",
+                        transition : "0s"
+                    });
+                    }, "60");
+                    currentIdx = slideLength-1;                  
+                }
+                console.log(currentIdx);
+            })
+
+        
+
+
+        </script>
+    </body>
+</html>
