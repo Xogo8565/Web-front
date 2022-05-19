@@ -75,8 +75,7 @@
             slideContainer.append(firstImgCopy);
             slideContainer.prepend(lastImgCopy);
             imgContainer.css("transform","translateX(-" + imgWidth +"px)");
-
-            nextButton.click(function(){
+            function nextSlide (){
                 if(currentIdx<slideLength-1){
                     currentIdx++;
                     imgContainer.css({
@@ -96,9 +95,8 @@
                 }
 
                 console.log(currentIdx);
-            });
-
-            prevButton.click(function(){
+            }
+            function prevSlide (){
                 if(currentIdx >= 0){
                     currentIdx--;
                     imgContainer.css({
@@ -117,8 +115,13 @@
                     currentIdx = slideLength-1;                  
                 }
                 console.log(currentIdx);
-            })
+            }
 
+            nextButton.click(()=>nextSlide());
+
+            prevButton.click(()=>prevSlide());
+
+           $(document).ready(()=>setInterval(nextSlide, 4000)); 
         
 
 

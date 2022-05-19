@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 450px;
+            height: 450px;
+            border: 1px solid black;
+            padding : 20px;
+            position: relative;
+        }
+        .container *{
+            border: 1px solid black;
+        }
+        .titleContainer { 
+            text-align: center;      
+        }
+        .inputDiv{
+            display: flex;
+            align-items: center;
+        }
+        .inputDiv h4 {
+            flex-basis: 30%;
+        }
+        .inputDiv input {
+            flex-basis: 70%;
+            height: 20px;
+        }
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-self: center;
+        }
+        .footer button {
+            width: 150px;
+            background-color: rgb(15, 111, 244);
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+        #pwExplain {
+            font-size: 0.8em;
+            text-align: center;
+            color: silver;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/join.do" method="post" id = "signUpForm">
+            <div class="titleContainer">
+                <h3>회원가입</ㅗn>
+            </div>
+            <div class="contentContainer">
+                <div class="inputDiv">
+                    <h4>아이디</h4>
+                    <input type="text" id = "id" name ="id">                
+                </div>
+                <div class="inputDiv">
+                    <h4>비밀번호</h4>
+                    <input type="password" id = "pw" name ="pw">                
+                </div>
+                <div id = "pwExplain"><span>영어 대/소문자, 특수문자(~!@#$%^&*)를 사용한 8~32자 이내</span></div>
+                <div class="inputDiv">
+                    <h4>비밀번호 재확인</h4>
+                    <input type="password" id = "pw2">                
+                </div>
+                <div class="inputDiv">
+                    <h4>이메일</h4>
+                    <input type= "text" id = "email" name ="email">                
+                </div>
+                <div class="inputDiv">
+                    <h4>주소</h4>
+                    <input type="text" id = "address" name ="address">                
+                </div>
+            <div class="footer">
+                <button type="button" id = "submitBtn">가입</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById("submitBtn").onclick = function () {
+            let pwRegex = /[a-zA-Z0-9~!@#$%^&*]{8,32}/;
+            if(document.getElementById("id").value===""||document.getElementById("pw").value===""||document.getElementById("pw2").value===""){
+                alert("아이디, 패스워드, 패스워드 확인은 필수 입력 항목입니다");
+                return;
+            }
+            if(!pwRegex.test(document.getElementById("pw").value)){
+                alert("사용할 수 없는 비밀번호입니다.");
+                return;
+            }
+            if(document.getElementById("pw").value!==document.getElementById("pw2").value){
+                alert("비밀번호가 일치하지 않습니다.");
+                return;
+            }  
+            
+            document.getElementById("signUpForm").submit();
+        }
+    </script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body>
+</html>
