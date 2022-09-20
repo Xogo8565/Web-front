@@ -22,9 +22,13 @@
     const root = document.getElementById("root");
 
     function App() {
-      let [minutes, setMinutes] = React.useState(0);
-      const onChange = (e) => {
-        setMinutes(e.target.value);
+      let [amount, setAmount] = React.useState(0);
+      const onChange = (e) => setAmount(e.target.value);
+      const reset = () => setAmount(0);
+      const [flipped, setFlip] = React.useState(false);
+      const onFlip = () => {
+        reset();
+        setFlip((e) => !e);
       };
       return (
         <div>
@@ -32,22 +36,27 @@
           <div>
             <label htmlFor="minutes">minutes</label>
             <input
-              value={minutes}
+              value={flipped ? amount * 60 : amount}
               id="minutes"
               placeholder="minutes"
               type="number"
               onChange={onChange}
+              disabled={flipped}
             />
           </div>
           <div>
             <label htmlFor="hours">hours</label>
             <input
-              value={minutes / 60}
+              value={flipped ? amount : amount / 60}
               id="hours"
               placeholder="hours"
               type="number"
+              onChange={onChange}
+              disabled={!flipped}
             />
           </div>
+          <button onClick={reset}>Reset</button>
+          <button onClick={onFlip}>Flip</button>
         </div>
       );
     }
