@@ -8,7 +8,7 @@ const Hello = () => {
 };
 function App() {
   const [showing, setShowing] = useState(false);
-  const onClick = () => setShowing((prev) => !prev);
+  const onClick = () => setShowing((this)=>!this);
 
   return (
     <div>
