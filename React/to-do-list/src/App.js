@@ -10,7 +10,6 @@ function App() {
     setToDos((currentArray) => [toDo, ...currentArray]);
     setToDo("");
   };
-  console.log(toDos);
 
   return (
     <div className="App">
