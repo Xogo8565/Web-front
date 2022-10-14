@@ -6,7 +6,9 @@ function App() {
   const onChange = (e) => setToDo(e.target.value);
   const onSubmit = (e) => {
     e.preventDefault();
+
     if (toDo === "") return;
+
     setToDos((currentArray) => [toDo, ...currentArray]);
     setToDo("");
   };
