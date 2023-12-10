@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate, useSearchParams, useLocation } from "react-router-dom";
+import CountButton from './CountButton';
 
 function Product(props) {
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
+    let [count, setCount] = useState(0);
+    const increase = () => setCount(count++);
+    const decrease = () => setCount(count--);
+
 
     const productId = useParams().productId;
     const location = useLocation();
@@ -18,6 +23,11 @@ function Product(props) {
                 <li>state : {location.state}</li>
                 <li>key : {location.key}</li>
                 <li>search : {search}</li>
+                <li>
+                    <CountButton function={decrease} name="decrease"></CountButton>
+                    count : {count}
+                    <CountButton function={increase} name="increase"></CountButton>
+                </li>
 
                 <li><button onClick={() => { navigate(-1) }}>Go back</button></li>
             </ul>
